@@ -1,15 +1,16 @@
 import Image from 'next/image';
-import Link from 'next/link'; // Import the Link component
+import Link from 'next/link';
 
 export default function HomePage() {
   return (
-    <div className="min-h-[calc(100vh-12rem)] flex items-center justify-center"> {/* Adjust min-height if you have a fixed navbar/footer later */}
-      <section className="flex flex-col md:flex-row items-center justify-center w-full max-w-5xl mx-auto py-12 px-4">
+    // Changed class here: removed min-h-calc, added flex-grow and flex-col
+    <div className="flex-grow flex flex-col items-center justify-center">
+      <section className="flex flex-col md:flex-row items-center justify-center w-full max-w-5xl mx-auto py-12 px-4"> {/* py-12 here provides padding for the hero content itself */}
         {/* Left Side: Headshot */}
         <div className="w-full md:w-2/5 flex justify-center mb-10 md:mb-0 md:mr-10 lg:mr-16">
           <div className="relative w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full overflow-hidden shadow-2xl border-4 border-uchicago-maroon hover:scale-105 transition-transform duration-300 ease-in-out group">
             <Image
-              src="/images/headshot.jpeg" // Ensure this path is correct!
+              src="/images/headshot.jpeg"
               alt="Marco Sukhatme"
               fill
               priority
