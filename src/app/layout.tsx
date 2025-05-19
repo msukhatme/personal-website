@@ -1,51 +1,61 @@
-import type { Metadata } from 'next'
-import { Inter, EB_Garamond } from 'next/font/google'
-import './globals.css'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer' // Import the Footer component
+"use client";
+
+import type { Metadata } from 'next';
+import { Inter, EB_Garamond } from 'next/font/google';
+import { usePathname } from 'next/navigation';
+import './globals.css';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 const ebGaramond = EB_Garamond({
   subsets: ['latin'],
   variable: '--font-eb-garamond',
   display: 'swap',
   weight: ['400', '500', '600', '700', '800'],
-})
+});
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-gotham',
   display: 'swap',
   weight: ['300', '400', '500', '600', '700'],
-})
-
-export const metadata: Metadata = {
-  title: 'Marco Sukhatme | Quantitative Finance & Machine Learning',
-  description: "Marco Sukhatme's personal portfolio website. Explore projects in quantitative finance, machine learning, and software development.",
-  icons: {
-    icon: [
-      { url: '/favicon.ico', type: 'image/x-icon' },
-      { url: '/favicon-16x16.png', type: 'image/png', sizes: '16x16' },
-      { url: '/favicon-32x32.png', type: 'image/png', sizes: '32x32' },
-    ],
-    apple: '/apple-touch-icon.png',
-  },
-  manifest: '/site.webmanifest',
-}
+});
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
+
+  // Common classes for main, includes vertical padding and flex properties
+  const commonMainClasses = "py-8 flex-grow flex flex-col";
+  // Classes for containing content on non-home pages
+  const containedMainClasses = "container mx-auto px-6 sm:px-8 md:px-12 lg:px-16";
+  // Background for home page
+  const homePageBackgroundClasses = "bg-[url('/images/campus.jpg')] bg-cover bg-center bg-no-repeat px-0"; // px-0 for home to ensure full bleed
+
   return (
     <html lang="en" className={`${ebGaramond.variable} ${inter.variable}`}>
+      <head>
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
+        <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+      </head>
       <body className="bg-uchicago-dark-gray text-uchicago-light-greystone selection:bg-uchicago-maroon selection:text-white flex flex-col min-h-screen">
         <Navbar />
-        <main className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16 py-8 flex-grow flex flex-col">
+        <main
+          className={`${commonMainClasses} ${
+            isHomePage ? homePageBackgroundClasses : containedMainClasses
+          }`}
+        >
           {children}
         </main>
-        <Footer /> {/* Add the Footer component here, mt-auto will push it down */}
+        <Footer />
       </body>
     </html>
-  )
+  );
 }

@@ -1,26 +1,36 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Home | Marco Sukhatme',
+  description: "Marco Sukhatme's personal portfolio website. Quantitative Finance & Machine Learning.",
+};
 
 export default function HomePage() {
   return (
-    // Changed class here: removed min-h-calc, added flex-grow and flex-col
+    // This div ensures the content assembly below is centered vertically within the main area
     <div className="flex-grow flex flex-col items-center justify-center">
-      <section className="flex flex-col md:flex-row items-center justify-center w-full max-w-5xl mx-auto py-12 px-4"> {/* py-12 here provides padding for the hero content itself */}
-        {/* Left Side: Headshot */}
-        <div className="w-full md:w-2/5 flex justify-center mb-10 md:mb-0 md:mr-10 lg:mr-16">
-          <div className="relative w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full overflow-hidden shadow-2xl border-4 border-uchicago-maroon hover:scale-105 transition-transform duration-300 ease-in-out group">
+      {/* This div is the main content assembly for the hero section.
+          It sets the max-width and centers itself horizontally.
+          On the Home page, its parent <main> is full-width with the campus background.
+      */}
+      <div className="w-full max-w-5xl xl:max-w-6xl mx-auto my-8 md:my-12 px-6 sm:px-8 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-10 lg:gap-16">
+        {/* Headshot (directly on campus background) */}
+        <div className="md:flex-shrink-0 order-1 md:order-1"> {/* md:flex-shrink-0 to prevent shrinking if text is too long */}
+          <div className="relative w-60 h-60 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden shadow-2xl border-4 border-uchicago-maroon hover:scale-105 transition-transform duration-300 ease-in-out group">
             <Image
               src="/images/headshot.jpeg"
               alt="Marco Sukhatme"
               fill
               priority
-              className="object-cover transform transition-transform duration-500 ease-in-out group-hover:scale-110"
+              className="object-cover" // Removed group-hover:scale-110 as it might look odd if only image scales
             />
           </div>
         </div>
 
-        {/* Right Side: Intro Text */}
-        <div className="w-full md:w-3/5 text-center md:text-left">
+        {/* Text Content Block (with semi-transparent background) */}
+        <div className="md:flex-grow order-2 md:order-2 bg-uchicago-off-black/85 backdrop-blur-md rounded-xl shadow-2xl p-8 sm:p-10 lg:p-12 text-center md:text-left">
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-uchicago-light-greystone mb-3">
             Marco Sukhatme
           </h1>
@@ -32,7 +42,7 @@ export default function HomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <Link href="/projects">
-              <button className="w-full sm:w-auto font-sans bg-uchicago-maroon text-white font-semibold py-3 px-8 rounded-lg hover:bg-opacity-80 transition-colors duration-300 shadow-lg focus:outline-none focus:ring-2 focus:ring-uchicago-maroon focus:ring-opacity-50">
+              <button className="w-full sm:w-auto font-sans bg-uchicago-maroon text-white font-semibold py-3 px-8 rounded-lg border-2 border-transparent hover:bg-opacity-80 transition-colors duration-300 shadow-lg focus:outline-none focus:ring-2 focus:ring-uchicago-maroon focus:ring-opacity-50">
                 View Projects
               </button>
             </Link>
@@ -43,7 +53,7 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 }
