@@ -71,11 +71,11 @@ const projectsData = [
   },
   {
     id: 'resnet-research',
-    title: 'Research: Using Data Augmentation to Improve ResNet-18 for TB Detection',
+    title: 'Using Data Augmentation to Improve the Performance of the ResNet-18 Model in Identifying Tuberculosis in Chest X-rays',
     date: 'June 2021 – May 2023',
-    role: 'Researcher (Original Science Research Program)',
-    location: 'Collaboration with Dr. Parsa Akbari, University of Cambridge (Remote)',
-    description: 'Enhanced the ResNet-18 convolutional neural network for tuberculosis detection by applying data augmentations on a public chest X-ray image dataset (T. Rahman et al. 2020).',
+    role: 'Machine Learning Researcher',
+    location: 'Cambridge, UK (Remote)',
+    description: 'Collaborated with Dr. Parsa Akbari (University of Cambridge, now at Regeneron Pharmaceuticals) to enhance the ResNet-18 convolutional neural network for tuberculosis detection by applying data augmentations on a public chest X-ray image dataset (T. Rahman et al. 2020).',
     highlights: [
       'Achieved a six-fold improvement in training time and a 43% reduction in F-score error as compared to the control model.',
       'Significantly outperformed human diagnosis accuracy.',

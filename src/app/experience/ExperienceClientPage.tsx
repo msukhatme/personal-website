@@ -22,6 +22,7 @@ const experienceData = [
       'Leverage machine learning to conduct sentiment analysis aimed at prioritizing high-growth therapeutic areas over the next five years.',
       'Research to be used by VantAI when determining which drugs to consider for development, both for its internal pipeline and its partnerships with large pharmaceutical conglomerates (e.g., Bristol Myers Squibb, Janssen, Blueprint Medicines).',
     ],
+    website: 'https://vant.ai',
     logoSrc: '/images/vantai_logo.jpeg',
   },
   {
@@ -35,6 +36,7 @@ const experienceData = [
       'Primarily helping with sourcing and due diligence.',
       'Performing LBO analysis and DCF valuations.',
     ],
+    website: 'https://sc.holdings',
     logoSrc: '/images/sc_logo.jpeg',
   },
   {
@@ -61,6 +63,7 @@ const experienceData = [
       'Developed core features in React Native and TypeScript.',
       'Responded to application bugs and collaborated on Freestyle Cloud integration for seamless data persistence.',
     ],
+    website: 'https://gotchu.delivery',
     logoSrc: '/images/gotchu_logo.png',
   },
   {
