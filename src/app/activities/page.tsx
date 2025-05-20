@@ -1,4 +1,3 @@
-// src/app/activities/page.tsx
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -57,9 +56,7 @@ const activitiesData = [
       'Joined as a member of the Fall 2023 class.',
       'Valuable club and network for technical skill development and industry preparation.',
     ],
-  },
-  // Consider adding a section for other notable activities or high school leadership if desired,
-  // but keeping it focused on current university activities for now as per "not ridiculous for a college sophomore".
+  }
 ];
 
 export default function ActivitiesPage() {
@@ -78,7 +75,7 @@ export default function ActivitiesPage() {
         {activitiesData.map((activity) => (
           <div key={activity.id} className="bg-uchicago-off-black p-6 sm:p-8 rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300 ease-in-out">
             <div className="mb-3">
-              <h2 className="text-2xl sm:text-3xl font-semibold font-serif text-uchicago-maroon">
+              <h2 className="text-2xl sm:text-3xl font-semibold font-serif text-uchicago-maroon text-outline-light-greystone-thin">
                 {activity.organization}
               </h2>
               <p className="text-lg font-medium font-sans text-uchicago-light-greystone mt-1">{activity.role}</p>

@@ -1,11 +1,9 @@
-// src/app/experience/ExperienceClientPage.tsx
-"use client"; // This is now a Client Component
+"use client";
 
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
-// You can also consider moving this to a shared icons file later
 const ExternalLinkIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 ml-1 inline-block group-hover:text-uchicago-maroon">
     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
@@ -102,10 +100,9 @@ const cardVariants = {
   visible: { opacity: 1, y: 0 },
 };
 
-// The main component is now named ExperienceClientPage or similar
 export default function ExperienceClientPage() {
   return (
-    <div className="min-h-screen py-10"> {/* This div might not need min-h-screen if page.tsx handles overall page structure */}
+    <div className="py-10">
       <header className="mb-16 text-center">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-serif text-uchicago-maroon text-outline-light-greystone-thin">
           Work Experience
@@ -119,7 +116,8 @@ export default function ExperienceClientPage() {
         {experienceData.map((exp, index) => (
           <motion.div
             key={exp.id}
-            className="bg-uchicago-off-black p-6 sm:p-8 rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300 ease-in-out flex flex-col md:flex-row items-start gap-6"
+            id={exp.id}
+            className="bg-uchicago-off-black p-6 sm:p-8 rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300 ease-in-out flex flex-col md:flex-row items-start gap-6 scroll-mt-24" // Added scroll-mt-24 for navbar offset
             variants={cardVariants}
             initial="hidden"
             whileInView="visible"
@@ -138,7 +136,7 @@ export default function ExperienceClientPage() {
               </div>
             )}
             <div className="flex-grow">
-              <h2 className="text-2xl sm:text-3xl font-semibold font-serif text-uchicago-maroon mb-1 text-outline-light-greystone-thin"> {/* Added outline to company names */}
+              <h2 className="text-2xl sm:text-3xl font-semibold font-serif text-uchicago-maroon mb-1 text-outline-light-greystone-thin">
                 {exp.company}
               </h2>
               <p className="text-lg font-medium font-sans text-uchicago-light-greystone mb-1">{exp.role}</p>

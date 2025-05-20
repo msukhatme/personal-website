@@ -6,13 +6,8 @@
   --foreground-rgb: 217, 217, 217; /* uchicago-light-greystone for text */
   --background-start-rgb: 34, 34, 34; /* uchicago-dark-gray */
   --background-end-rgb: 26, 26, 26; /* uchicago-off-black for a subtle gradient or solid */
-
-  /* Font variables will be defined in layout.tsx and used by Tailwind */
-  /* e.g., --font-gotham: 'Inter', sans-serif; (or actual Gotham if you have it) */
-  /* e.g., --font-eb-garamond: 'EB Garamond', serif; */
 }
 
-/* Apply a solid background color. You can also use the gradient from the previous example if preferred. */
 body {
   color: rgb(var(--foreground-rgb));
   background-color: rgb(var(--background-start-rgb));
@@ -20,7 +15,6 @@ body {
   font-family: var(--font-gotham); /* Default body font */
 }
 
-/* Custom scrollbar for a tech-y feel (optional) */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -37,10 +31,9 @@ body {
   background-color: #A00000; /* Lighter maroon on hover */
 }
 
-/* For Firefox scrollbar (less customization possible but good for consistency) */
 html {
   scrollbar-width: thin;
-  scrollbar-color: #800000 #1A1A1A; /* thumb and track */
+  scrollbar-color: #800000 #1A1A1A;
 }
 
 
@@ -50,7 +43,6 @@ html {
   }
 }
 
-/* Ensure headings use the serif font by default if desired, or apply font-serif class */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-eb-garamond);
 }

@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-const plugin = require('tailwindcss/plugin'); // Import the plugin function
+const plugin = require('tailwindcss/plugin');
 
 module.exports = {
   content: [
@@ -36,12 +36,10 @@ module.exports = {
         '.text-outline-light-greystone': {
           textShadow: `-1px -1px 0 ${theme('colors.uchicago-light-greystone')}, 1px -1px 0 ${theme('colors.uchicago-light-greystone')}, -1px 1px 0 ${theme('colors.uchicago-light-greystone')}, 1px 1px 0 ${theme('colors.uchicago-light-greystone')}`
         },
-        // Thinner, softer outline using a small blur
         '.text-outline-white-thin': {
-          textShadow: `0 0 3px ${theme('colors.white')}, 0 0 3px ${theme('colors.white')}` // Repeated for intensity if needed, adjust blur radius (3px) and color opacity
+          textShadow: `0 0 3px ${theme('colors.white')}, 0 0 3px ${theme('colors.white')}`
         },
         '.text-outline-light-greystone-thin': {
-           // Multiple shadows for a slightly thicker but still soft outline
           textShadow: `
             -0.5px -0.5px 0 ${theme('colors.uchicago-light-greystone')}, 
              0.5px -0.5px 0 ${theme('colors.uchicago-light-greystone')}, 

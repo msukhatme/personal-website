@@ -38,7 +38,7 @@ export default function Navbar() {
               href={link.href}
               className={`font-sans transition-colors duration-300 ${
                 pathname === link.href
-                  ? 'text-uchicago-maroon font-semibold text-outline-light-greystone-thin' // Added text outline for active link
+                  ? 'text-uchicago-maroon font-semibold text-outline-light-greystone-thin'
                   : 'text-uchicago-light-greystone hover:text-uchicago-maroon'
               }`}
             >
@@ -75,7 +75,7 @@ export default function Navbar() {
                 href={link.href}
                 className={`font-sans py-2 text-center transition-colors duration-300 ${
                   pathname === link.href
-                    ? 'text-uchicago-maroon font-semibold text-outline-light-greystone-thin' // Added text outline for active mobile link
+                    ? 'text-uchicago-maroon font-semibold text-outline-light-greystone-thin'
                     : 'text-uchicago-light-greystone hover:text-uchicago-maroon'
                 }`}
               >

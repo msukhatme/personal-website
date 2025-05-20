@@ -1,6 +1,5 @@
-// src/app/experience/page.tsx
 import type { Metadata } from 'next';
-import ExperienceClientPage from './ExperienceClientPage'; // Import the new client component
+import ExperienceClientPage from './ExperienceClientPage';
 
 export const metadata: Metadata = {
   title: 'Experience | Marco Sukhatme',

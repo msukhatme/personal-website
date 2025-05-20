@@ -1,4 +1,3 @@
-// src/components/Footer.tsx
 import Link from 'next/link';
 
 const MailIcon = () => (
@@ -21,7 +20,7 @@ const GitHubIcon = () => (
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const email = "msukhatme@uchicago.edu"; // Your email from CV
+  const email = "msukhatme@uchicago.edu";
   const linkedInUrl = "https://linkedin.com/in/marco-sukhatme";
   const githubUrl = "https://github.com/msukhatme";
 

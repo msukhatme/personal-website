@@ -9,32 +9,26 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    // This div ensures the content assembly below is centered vertically within the main area
     <div className="flex-grow flex flex-col items-center justify-center">
-      {/* This div is the main content assembly for the hero section.
-          It sets the max-width and centers itself horizontally.
-          On the Home page, its parent <main> is full-width with the campus background.
-      */}
       <div className="w-full max-w-5xl xl:max-w-6xl mx-auto my-8 md:my-12 px-6 sm:px-8 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-10 lg:gap-16">
         {/* Headshot (directly on campus background) */}
-        <div className="md:flex-shrink-0 order-1 md:order-1"> {/* md:flex-shrink-0 to prevent shrinking if text is too long */}
+        <div className="md:flex-shrink-0 order-1 md:order-1">
           <div className="relative w-60 h-60 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden shadow-2xl border-4 border-uchicago-maroon hover:scale-105 transition-transform duration-300 ease-in-out group">
             <Image
               src="/images/headshot.jpeg"
               alt="Marco Sukhatme"
               fill
               priority
-              className="object-cover" // Removed group-hover:scale-110 as it might look odd if only image scales
+              className="object-cover"
             />
           </div>
         </div>
 
-        {/* Text Content Block (with semi-transparent background) */}
         <div className="md:flex-grow order-2 md:order-2 bg-uchicago-off-black/85 backdrop-blur-md rounded-xl shadow-2xl p-8 sm:p-10 lg:p-12 text-center md:text-left">
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-uchicago-light-greystone mb-3">
             Marco Sukhatme
           </h1>
-          <h2 className="font-sans text-xl sm:text-2xl lg:text-3xl text-uchicago-maroon mb-6 font-semibold">
+          <h2 className="font-sans text-xl sm:text-2xl lg:text-3xl text-uchicago-maroon mb-6 font-semibold text-outline-light-greystone-thin">
             Quantitative Finance & Machine Learning
           </h2>
           <p className="font-sans text-base sm:text-lg text-uchicago-light-greystone leading-relaxed max-w-xl mx-auto md:mx-0 mb-8">

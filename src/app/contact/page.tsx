@@ -1,4 +1,3 @@
-// src/app/contact/page.tsx
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -6,7 +5,6 @@ export const metadata: Metadata = {
   description: 'Get in touch with Marco Sukhatme. Contact information for email and professional networks.',
 }
 
-// Example icons (can be moved to separate components later)
 const MailIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 mr-3 flex-shrink-0">
     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
@@ -31,9 +29,6 @@ export default function ContactPage() {
   const githubUrl = "https://github.com/msukhatme";
 
   return (
-    // This div will grow to fill the space within <main> from layout.tsx
-    // and then center its own children (header and section).
-    // Added py-8 for some padding, adjust as needed.
     <div className="flex-grow flex flex-col items-center justify-center py-8 md:py-12">
       <header className="mb-10 sm:mb-12 text-center">
         <h1 className="text-4xl sm:text-5xl font-bold font-serif text-uchicago-maroon text-outline-light-greystone-thin">

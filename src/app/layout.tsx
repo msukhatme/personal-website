@@ -34,7 +34,7 @@ export default function RootLayout({
   // Classes for containing content on non-home pages
   const containedMainClasses = "container mx-auto px-6 sm:px-8 md:px-12 lg:px-16";
   // Background for home page
-  const homePageBackgroundClasses = "bg-[url('/images/campus.jpg')] bg-cover bg-center bg-no-repeat px-0"; // px-0 for home to ensure full bleed
+  const homePageBackgroundClasses = "bg-[url('/images/campus.jpg')] bg-cover bg-center bg-no-repeat px-0";
 
   return (
     <html lang="en" className={`${ebGaramond.variable} ${inter.variable}`}>

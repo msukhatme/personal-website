@@ -1,5 +1,5 @@
-// src/app/about/page.tsx
 import type { Metadata } from 'next'
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'About | Marco Sukhatme',
@@ -23,6 +23,12 @@ const Section = ({ title, children }: { title: string, children: React.ReactNode
   </section>
 );
 
+const LinkedText = ({ href, children }: { href: string, children: React.ReactNode }) => (
+  <Link href={href} className="text-uchicago-maroon hover:underline focus:underline focus:outline-none focus:ring-1 focus:ring-uchicago-maroon/50 rounded-sm transition-all duration-150">
+    {children}
+  </Link>
+);
+
 
 export default function AboutPage() {
   const education = {
@@ -30,14 +36,15 @@ export default function AboutPage() {
       name: "The University of Chicago",
       location: "Chicago, IL",
       degrees: "B.A. Statistics | B.S. Computer Science",
-      specialization: "Specialization in Machine Learning",
-      graduation: "Expected, May 2027",
+      specialization: "Machine Learning",
+      graduation: "May 2027",
       statsCourses: [
         "MATH 15200: Calculus II", "PHYS 12200: General Physics II (Electricity and Magnetism)",
         "STAT 22000: Statistical Methods and Applications (R)", "MATH 18300: Mathematical Methods in the Physical Sciences I (Linear Algebra)",
         "MATH 18400: Mathematical Methods in the Physical Sciences II (Multivariable Calculus)",
         "DATA 11800: Introduction to Data Science I (Python, Pandas, and NumPy)",
-        "STAT 22400: Applied Regression Analysis"
+        "STAT 22400: Applied Regression Analysis",
+        "STAT 25100: Introduction to Mathematical Probability"
       ],
       csCourses: [
         "MATH 15200: Calculus II", "PHYS 12200: General Physics II (Electricity and Magnetism)",
@@ -55,14 +62,27 @@ export default function AboutPage() {
       diploma: "June 2023",
       sat: "SAT: 1590/1600 (800 Math, 790 EBRW)",
       aps: "11 APs",
-      honors: ["National Merit Scholarship Finalist", "U.S. Presidential Scholars Program Nominee", "National Honor Society", "AP Scholar with Distinction"]
+      honors: ["National Merit Scholarship Finalist", "U.S. Presidential Scholars Program Nominee", "National Honor Society", "AP Scholar with Distinction"],
+      activities: [
+        "MHS Volunteer Service (Founder & President)",
+        "Computer Science Club (President)",
+        "Academic Team (President)",
+        "Middle Eastern Culture Club (Founder & President)",
+        "Math Team (Treasurer)",
+        "Students for Senegal (Treasurer)",
+        "Future Business Leaders of America",
+        "Investment Club",
+        "Varsity Wrestling",
+        "Original Science Research"
+      ]
     }
   };
 
   const skills = {
     programming: [
       "Python (PyTorch, TensorFlow, Pandas, NumPy)", "C", "TypeScript", "Java",
-      "React Native", "Node.js", "R", "HTML/CSS"
+      "React Native", "Node.js (Puppeteer)", "Next.js/Vercel", "R",
+      "HTML/CSS", "GitHub"
     ],
     finance: [
       "LSEG Workspace (formerly Refinitiv)", "DCF Valuation", "LBO Modeling",
@@ -73,13 +93,13 @@ export default function AboutPage() {
 
   const interests = [
     "Basketball (Minnesota Timberwolves)", "Football (Minnesota Vikings)",
-    "Mafia Movies", "Poker", "Weightlifting"
+    "Mafia Movies", "Poker", "Traveling", "Weightlifting"
   ];
 
   return (
-    <div className="min-h-screen py-10">
+    <div className="py-10">
       <header className="mb-16 text-center">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-serif text-uchicago-maroon text-outline-light-greystone-thin"> {/* Added text outline */}
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-serif text-uchicago-maroon text-outline-light-greystone-thin">
           About Me
         </h1>
       </header>
@@ -90,7 +110,7 @@ export default function AboutPage() {
             Sophomore at the University of Chicago pursuing a B.A. in Statistics and a B.S. in Computer Science with a specialization in Machine Learning. My interests primarily align in the fields of quantitative finance and machine learning, and I’m passionate about entrepreneurship that brings these disciplines together.
           </p>
           <p>
-            I’m drawn to roles where I can apply statistical modeling and algorithmic strategy to uncover market opportunities, then leverage AI techniques to build scalable, data-driven products. Some of my experiences include founding ClinAlpha Capital—a sentiment-analysis-powered biotech equity fund—interning in machine learning and private equity roles, co-founding TaskU and driving product development at a food delivery startup, leading the design of algorithmic trading systems in Python and Java, and advancing deep-learning research to optimize medical image diagnostic models.
+            I’m drawn to roles where I can apply statistical modeling and algorithmic strategy to uncover market opportunities, then leverage AI techniques to build scalable, data-driven products. Some of my experiences include founding <LinkedText href="/experience#clinalpha">ClinAlpha Capital</LinkedText>—a sentiment-analysis-powered biotech equity fund—interning in <LinkedText href="/experience#vantai">machine learning</LinkedText> and <LinkedText href="/experience#scholdings">private equity</LinkedText> roles, co-founding <LinkedText href="/experience#tasku">TaskU</LinkedText> and driving product development at a <LinkedText href="/experience#gotchu">food delivery startup</LinkedText>, leading the design of <LinkedText href="/projects#uchicago-trading-comp">algorithmic trading systems</LinkedText> in Python and Java, and advancing <LinkedText href="/projects#resnet-research">deep-learning research</LinkedText> to optimize medical image diagnostic models.
           </p>
         </Section>
 
@@ -126,6 +146,8 @@ export default function AboutPage() {
             <p className="mb-1">{education.highSchool.sat} | {education.highSchool.aps}</p>
             <p className="font-medium text-uchicago-light-greystone/80 mb-1 mt-2">Selected Honors:</p>
             {education.highSchool.honors.map(honor => <Pill key={honor}>{honor}</Pill>)}
+            <p className="font-medium text-uchicago-light-greystone/80 mb-1 mt-2">Extracurriculars:</p>
+            {education.highSchool.activities.map(activity => <Pill key={activity}>{activity}</Pill>)}
           </div>
         </Section>
 
