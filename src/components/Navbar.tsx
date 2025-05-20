@@ -1,12 +1,12 @@
 "use client";
 
 import Link from 'next/link';
-import { useState, useEffect } from 'react'; // Added useEffect
-import { usePathname } from 'next/navigation'; // To highlight active link
+import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const pathname = usePathname(); // Get current path
+  const pathname = usePathname();
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -17,7 +17,6 @@ export default function Navbar() {
     { href: "/contact", label: "Contact" },
   ];
 
-  // Close mobile menu on route change
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [pathname]);
@@ -25,15 +24,13 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 py-4 bg-uchicago-off-black/80 backdrop-blur-md shadow-lg">
       <nav className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16 flex justify-between items-center">
-        {/* Logo/Name */}
         <Link
           href="/"
-          className="text-2xl font-serif font-bold text-uchicago-maroon hover:opacity-80 transition-opacity"
+          className="text-2xl font-serif font-bold text-uchicago-maroon hover:opacity-80 transition-opacity text-outline-light-greystone-thin" // Added text outline
         >
           Marco Sukhatme
         </Link>
 
-        {/* Desktop Navigation Links */}
         <div className="hidden md:flex space-x-6 lg:space-x-8 items-center">
           {navLinks.map((link) => (
             <Link
@@ -41,7 +38,7 @@ export default function Navbar() {
               href={link.href}
               className={`font-sans transition-colors duration-300 ${
                 pathname === link.href
-                  ? 'text-uchicago-maroon font-semibold' // Active link style
+                  ? 'text-uchicago-maroon font-semibold text-outline-light-greystone-thin' // Added text outline for active link
                   : 'text-uchicago-light-greystone hover:text-uchicago-maroon'
               }`}
             >
@@ -50,7 +47,6 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Mobile Menu Button (Hamburger Icon) */}
         <div className="md:hidden">
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -70,7 +66,6 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Navigation Menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-uchicago-off-black/95 shadow-xl py-4">
           <div className="container mx-auto px-6 sm:px-8 flex flex-col space-y-4">
@@ -80,10 +75,9 @@ export default function Navbar() {
                 href={link.href}
                 className={`font-sans py-2 text-center transition-colors duration-300 ${
                   pathname === link.href
-                    ? 'text-uchicago-maroon font-semibold' // Active link style
+                    ? 'text-uchicago-maroon font-semibold text-outline-light-greystone-thin' // Added text outline for active mobile link
                     : 'text-uchicago-light-greystone hover:text-uchicago-maroon'
                 }`}
-                // onClick is automatically handled by useEffect for route changes
               >
                 {link.label}
               </Link>

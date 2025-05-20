@@ -66,7 +66,7 @@ export default function ActivitiesPage() {
   return (
     <div className="min-h-screen py-10">
       <header className="mb-16 text-center">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-serif text-uchicago-maroon">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-serif text-uchicago-maroon text-outline-light-greystone-thin">
           Extracurricular Activities
         </h1>
         <p className="text-lg text-uchicago-greystone mt-2 font-sans max-w-2xl mx-auto">

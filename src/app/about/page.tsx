@@ -6,14 +6,12 @@ export const metadata: Metadata = {
   description: 'Learn more about Marco Sukhatme, his background, education, skills, and interests in quantitative finance and machine learning.',
 }
 
-// A simple Pill component for displaying skills, courses, etc.
 const Pill = ({ children }: { children: React.ReactNode }) => (
   <span className="inline-block bg-uchicago-maroon/20 text-uchicago-light-greystone font-medium text-sm px-3 py-1 rounded-full mr-2 mb-2 border border-uchicago-maroon/50 hover:bg-uchicago-maroon/30 transition-colors duration-200">
     {children}
   </span>
 );
 
-// Section component for consistent styling
 const Section = ({ title, children }: { title: string, children: React.ReactNode }) => (
   <section className="mb-12">
     <h2 className="text-3xl font-semibold font-serif text-uchicago-light-greystone mb-6 border-b-2 border-uchicago-maroon pb-3">
@@ -34,7 +32,6 @@ export default function AboutPage() {
       degrees: "B.A. Statistics | B.S. Computer Science",
       specialization: "Specialization in Machine Learning",
       graduation: "Expected, May 2027",
-      // GPA: "Cumulative GPA: 3.78/4.00 | Statistics GPA: 3.75/4.0 | Computer Science GPA: 3.88/4.00", // GPA EXCLUDED AS REQUESTED
       statsCourses: [
         "MATH 15200: Calculus II", "PHYS 12200: General Physics II (Electricity and Magnetism)",
         "STAT 22000: Statistical Methods and Applications (R)", "MATH 18300: Mathematical Methods in the Physical Sciences I (Linear Algebra)",
@@ -56,7 +53,6 @@ export default function AboutPage() {
       name: "Mamaroneck High School",
       location: "Mamaroneck, NY",
       diploma: "June 2023",
-      // GPA: "GPA: 96.4/100 (unweighted)", // GPA EXCLUDED
       sat: "SAT: 1590/1600 (800 Math, 790 EBRW)",
       aps: "11 APs",
       honors: ["National Merit Scholarship Finalist", "U.S. Presidential Scholars Program Nominee", "National Honor Society", "AP Scholar with Distinction"]
@@ -83,7 +79,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen py-10">
       <header className="mb-16 text-center">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-serif text-uchicago-maroon">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-serif text-uchicago-maroon text-outline-light-greystone-thin"> {/* Added text outline */}
           About Me
         </h1>
       </header>

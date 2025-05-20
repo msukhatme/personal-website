@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require('tailwindcss/plugin'); // Import the plugin function
+
 module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -11,13 +13,10 @@ module.exports = {
         'uchicago-maroon': '#800000',
         'uchicago-light-greystone': '#D9D9D9',
         'uchicago-greystone': '#A6A6A6',
-        'uchicago-dark-gray': '#222222', // For primary background
-        'uchicago-off-black': '#1A1A1A', // Alternative background
+        'uchicago-dark-gray': '#222222',
+        'uchicago-off-black': '#1A1A1A',
       },
       fontFamily: {
-        // Add EB Garamond for headings and a sans-serif stack for body
-        // We'll load EB Garamond via Google Fonts in layout.tsx
-        // The 'var(--font-gotham)' and 'var(--font-eb-garamond)' will be defined in layout.tsx
         sans: ['var(--font-gotham)', 'system-ui', '-apple-system', 'BlinkMacSystemFont', "Segoe UI", 'Roboto', "Helvetica Neue", 'Arial', "Noto Sans", 'sans-serif', "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"],
         serif: ['var(--font-eb-garamond)', 'Georgia', 'Cambria', "Times New Roman", 'Times', 'serif'],
       },
@@ -28,5 +27,30 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function({ addUtilities, theme }) {
+      const newUtilities = {
+        '.text-outline-white': {
+          textShadow: `-1px -1px 0 ${theme('colors.white')}, 1px -1px 0 ${theme('colors.white')}, -1px 1px 0 ${theme('colors.white')}, 1px 1px 0 ${theme('colors.white')}`
+        },
+        '.text-outline-light-greystone': {
+          textShadow: `-1px -1px 0 ${theme('colors.uchicago-light-greystone')}, 1px -1px 0 ${theme('colors.uchicago-light-greystone')}, -1px 1px 0 ${theme('colors.uchicago-light-greystone')}, 1px 1px 0 ${theme('colors.uchicago-light-greystone')}`
+        },
+        // Thinner, softer outline using a small blur
+        '.text-outline-white-thin': {
+          textShadow: `0 0 3px ${theme('colors.white')}, 0 0 3px ${theme('colors.white')}` // Repeated for intensity if needed, adjust blur radius (3px) and color opacity
+        },
+        '.text-outline-light-greystone-thin': {
+           // Multiple shadows for a slightly thicker but still soft outline
+          textShadow: `
+            -0.5px -0.5px 0 ${theme('colors.uchicago-light-greystone')}, 
+             0.5px -0.5px 0 ${theme('colors.uchicago-light-greystone')}, 
+            -0.5px  0.5px 0 ${theme('colors.uchicago-light-greystone')}, 
+             0.5px  0.5px 0 ${theme('colors.uchicago-light-greystone')}
+          `
+        }
+      }
+      addUtilities(newUtilities, ['responsive', 'hover'])
+    })
+  ],
 }

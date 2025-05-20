@@ -36,7 +36,7 @@ export default function ContactPage() {
     // Added py-8 for some padding, adjust as needed.
     <div className="flex-grow flex flex-col items-center justify-center py-8 md:py-12">
       <header className="mb-10 sm:mb-12 text-center">
-        <h1 className="text-4xl sm:text-5xl font-bold font-serif text-uchicago-maroon">
+        <h1 className="text-4xl sm:text-5xl font-bold font-serif text-uchicago-maroon text-outline-light-greystone-thin">
           Get In Touch
         </h1>
         <p className="text-lg text-uchicago-greystone mt-3 font-sans max-w-lg md:max-w-xl mx-auto">
