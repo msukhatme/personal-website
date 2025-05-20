@@ -25,7 +25,7 @@ const GitHubIcon = () => (
 
 export default function ContactPage() {
   const email = "msukhatme@uchicago.edu";
-  const linkedInUrl = "https://linkedin.com/in/marco-sukhatme";
+  const linkedInUrl = "https://linkedin.com/in/msukhatme";
   const githubUrl = "https://github.com/msukhatme";
 
   return (
